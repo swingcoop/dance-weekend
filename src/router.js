@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Rsvp from './views/Rsvp.vue'
+import RsvpStart from './views/rsvp/RsvpStart.vue'
 
 Vue.use(Router)
 
@@ -17,7 +17,7 @@ export default new Router({
     {
       path: '/rsvp',
       name: 'rsvp',
-      component: Rsvp
+      component: RsvpStart
     },
     {
       path: '/about',
