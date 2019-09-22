@@ -22,7 +22,9 @@
         I might be able to host people at my place, and I am a good person.
     </label>
 
-    <button @click="next">Next</button>
+    <div class="nav-panel">
+        <button @click="next">Next</button>
+    </div>
 </div>
 </template>
 

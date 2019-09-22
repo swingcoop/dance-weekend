@@ -20,7 +20,9 @@
         </label>
     </div>
 
-    <button @click="next">Next</button>
+    <div class="nav-panel">
+        <button @click="next">Next</button>
+    </div>
 </div>
 </template>
 

@@ -1,13 +1,24 @@
 <template>
 <div>
-    <div>{{name}}</div>
+    <h2>:. {{name}}</h2>
+
+    <p>
+        Thank you. We're going to ask a few questions, to help tailor
+        your weekend experience.
+    </p>
+
     <h3>Do you live in Corvallis?</h3>
-    <button
-        @click="setResidency('yes')">Yes</button>
-    <button
-        @click="setResidency('maybe')">Close enough?</button>
-    <button
-        @click="setResidency('no')">Nope</button>
+    <div class="button-panel">
+        <button
+            :class="{'selected': residency == 'yes'}"
+            @click="setResidency('yes')">Yes</button>
+        <button
+            :class="{'selected': residency == 'maybe'}"
+            @click="setResidency('maybe')">Close enough?</button>
+        <button
+            :class="{'selected': residency == 'no'}"
+            @click="setResidency('no')">Nope</button>
+    </div>
 
     <h3>What's your email address?</h3>
     <input v-model="email" type="text"/>
@@ -22,7 +33,7 @@
         I enjoy dancing
     </label>
 
-    <div>
+    <div class="nav-panel">
         <button @click="next">Next</button>
     </div>
 </div>
@@ -57,5 +68,9 @@ export default {
 </script>
 
 <style scoped>
-
+label {
+    border: dotted 1px red;
+    border-radius: 10px;
+    padding: 2ex;
+}
 </style>
