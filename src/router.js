@@ -10,7 +10,7 @@ import RsvpThanks from './views/rsvp/RsvpThanks.vue'
 
 Vue.use(Router)
 
-export default new Router({
+var router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -62,5 +62,24 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     }
-  ]
-})
+  ],
+
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
+  }
+});
+
+// router.beforeEach((to, from, next) => {
+//   // to.params = from.params;
+//   // eslint-disable-next-line
+//   // console.log(from);
+//   // eslint-disable-next-line
+//   console.log('ok');
+//   next({ name: to.name, params: from.params });
+// });
+
+export default router;

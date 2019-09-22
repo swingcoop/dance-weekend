@@ -14,7 +14,7 @@
 
     <label>
         <input v-model="volunteerBefore" type="checkbox" />
-        I would like to help the organizers, in some way!
+        I would like to help the organizers, before the event, in some way!
     </label>
 
     <label v-if="isResident">
@@ -68,5 +68,8 @@ export default {
 <style scoped>
 label {
     display: block;
+}
+input {
+    margin-bottom: 1.2em;
 }
 </style>

@@ -1,12 +1,16 @@
 <template>
 <div>
+    <h2>:. Food</h2>
     <h3>Check a box, maybe?</h3>
     <div v-for="d in diets" :key="d.key">
         <label>
             <input 
                 v-model="diet[d.key]"
-                type="checkbox"/>
-            {{ d.name }}
+                type="checkbox"
+                @click="dietSelected(d.key)"/>
+            <span :class="{ 'selected' : diet[d.key] }">
+                {{ d.name }}
+            </span>
         </label>
     </div>
 
@@ -16,7 +20,9 @@
             <input 
                 v-model="allergies[a.key]"
                 type="checkbox"/>
-            {{ a.name }}
+            <span :class="{ 'selected' : allergies[a.key] }">
+                {{ a.name }}
+            </span>
         </label>
     </div>
 
@@ -60,6 +66,27 @@ export default {
         }
     },
     methods: {
+        dietSelected(key) {
+            let nope = {};
+            if (key === 'vegan') {
+                nope = {
+                    milk: true,
+                    eggs: true,
+                    fish: true,
+                    shellfish: true
+                }
+            }
+            if (key === 'vegetarian') {
+                nope = {
+                    fish: true,
+                    shellfish: true
+                }
+            }
+            this.allergies = {
+                ...this.allergies,
+                ...nope
+            };
+        },
         next() {
             flow.next({
                 diet: this.diet,
@@ -71,5 +98,10 @@ export default {
 </script>
 
 <style scoped>
-
+input {
+    margin-bottom: 1.2em;
+}
+span.selected {
+    color: #e00;
+}
 </style>

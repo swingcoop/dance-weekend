@@ -48,10 +48,12 @@ h3 {
 }
 
 input[type=text] {
+    box-sizing: border-box;
     padding: 1ex;
     font-size: 1em;
     border-radius: 10px;
     display: block;
+    width: 100%;
 }
 button {
     border-radius: 10px;
@@ -71,6 +73,7 @@ button.selected {
     margin-bottom: 1.1em;
 }
 textarea {
+    box-sizing: border-box;
     border-radius: 10px;
     width: 100%;
 }
