@@ -20,21 +20,15 @@
         <textarea rows="3" v-model="declineText"></textarea>
     </div>
     <div v-else-if="isAttending">
-        <h3>What's your name?</h3>
+        <h3>What's your first and last name?</h3>
         <input 
             type="text" 
             v-model="name"/>
 
-        <h3>Please confirm a few things:</h3>
-        <label>
-            <input type="checkbox" v-model="enjoysDancing"/>
-            I enjoy dancing
-        </label>
-
         <div class="nav-panel">
             <button 
                 type="submit" 
-                :disabled="!enjoysDancing"
+                :disabled="!name"
                 @click="next" 
                 >That's me.</button>
         </div>
@@ -50,7 +44,6 @@ export default {
     data() {
         return {
             declineText: '',
-            enjoysDancing: null,
             isAttending: null,
             name: ''
         }
@@ -68,7 +61,7 @@ export default {
             this.isAttending = false;
         },
         next() {
-            flow.next('start', { name: this.name });
+            flow.next({ name: this.name });
         }
     }
 }

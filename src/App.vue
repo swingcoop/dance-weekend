@@ -20,4 +20,7 @@ a,
 h1 {
   color: white;
 }
+button {
+  background-color: white;
+}
 </style>
