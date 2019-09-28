@@ -14,7 +14,7 @@
         </label>
     </div>
 
-    <h3>Check the things you do not want to eat.</h3>
+    <h3>Check the things you do NOT want to eat.</h3>
     <div v-for="a in allergens" :key="a.key">
         <label>
             <input 
