@@ -7,7 +7,8 @@
 </template>
 
 <script>
-import flow from '@/lib/flow'
+// import flow from '@/lib/flow';
+import axios from 'axios';
 
 export default {
     data() {
@@ -15,7 +16,14 @@ export default {
     },
     methods: {
         rsvp() {
-            flow.next();
+            axios.post('/api/reservations', { 
+                Name: 'Test',
+                Email: 'test@test.com'
+            }).then(res => {
+                // eslint-disable-next-line
+                console.log(res);
+                // flow.next();
+            })
         }
     }
 }

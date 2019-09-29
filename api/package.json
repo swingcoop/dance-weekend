@@ -1,0 +1,19 @@
+{
+  "name": "dance-weekend-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Philip Manijak",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^8.0.1",
+    "airtable": "^0.7.1",
+    "dotenv": "^8.1.0",
+    "koa": "^2.8.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.1"
+  }
+}
