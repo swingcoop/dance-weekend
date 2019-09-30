@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <img src="../assets/corvallis-swing.svg" width="33%"/>
+    <div class="logo-wrapper">
+      <CorvallisSwingLogo class="logo"/>
+    </div>
     <h1>Year 10. Let's go.</h1>
 
     <router-link to="/rsvp">R.S.V.P.</router-link>
@@ -8,12 +10,13 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import CorvallisSwingLogo from "@/assets/corvallis-swing.svg"
 
 export default {
   name: 'home',
-  components: {}
+  components: {
+    CorvallisSwingLogo
+  }
 }
 </script>
 
@@ -26,5 +29,12 @@ export default {
   }
   .home {
     text-align: center;
+  }
+  .dancers {
+    /* fill: yellow; */
+  }
+  .logo-wrapper {
+    width: 33%;
+    display: inline-block;
   }
 </style>
