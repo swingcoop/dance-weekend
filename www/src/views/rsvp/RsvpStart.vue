@@ -33,8 +33,15 @@
         <textarea rows="7" v-model="declineText"></textarea>
 
         <div class="nav-panel">
-            <button 
-                @click="decline">Send</button>
+            <div v-if="!isDeclining">
+                <button @click="decline">Send</button>
+            </div>
+            <p v-if="isDeclining && !declineSent">Sending ...</p>
+            <p v-if="declineSent">Thank you!</p>
+            <p v-if="declineError">
+                There was an error sending your message. Please
+                try again later?
+            </p>
         </div>
     </div>
 
@@ -57,12 +64,16 @@
 
 <script>
 import flow from '@/lib/flow';
+import axios from 'axios';
 
 export default {
     name: 'RsvpStart',
     data() {
         return {
+            isDeclining: false,
             declineText: '',
+            declineSent: false,
+            declineError: false,
             isAttending: null,
             name: ''
         }
@@ -80,7 +91,19 @@ export default {
             this.isAttending = false;
         },
         decline() {
-
+            this.isDeclining = true;
+            let decline = {
+                name: this.name,
+                note: this.declineText
+            };
+            axios.post('/api/declines', decline)
+            .then(() => {
+                this.declineSent = true;
+            })
+            .catch(err => {
+                this.declineError = err;
+                this.isDeclining = false;
+            });
         },
         next() {
             flow.next({ name: this.name });

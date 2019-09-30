@@ -88,6 +88,33 @@ router.post('/api/reservations', async (ctx, next) => {
    });
 });
 
+router.post('/api/declines', async (ctx, next) => {
+   var body = ctx.request.body;
+
+   await new Promise ((resolve, reject) => {
+      let fields = {
+         Name: body.name,
+         Note: body.note
+      };
+
+      base('Declines').create(
+         [{ fields: fields }], 
+         (err, records) => {
+            if (err)
+               reject(err)
+            else
+               resolve(records)
+         }
+      );
+   })
+   .then(() => {
+      ctx.status = 200;
+   })
+   .catch(err => {
+      ctx.throw(500, err);
+   });
+});
+
 app.use(async (ctx, next) => {
    await next();
    if (ctx.status === 404) {

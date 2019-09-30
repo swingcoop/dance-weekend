@@ -1,7 +1,7 @@
 module.exports = {
   devServer: {
     proxy: {
-      '/reservations' : {
+      '/api' : {
         target: 'http://localhost:3000'
       }
     }

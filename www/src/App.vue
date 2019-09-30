@@ -47,7 +47,8 @@ h3 {
     background-color: white;
 }
 
-input[type=text] {
+input[type=text],
+textarea {
     box-sizing: border-box;
     padding: 1ex;
     font-size: 1em;
@@ -71,10 +72,5 @@ button.selected {
 .button-panel button {
     display: block;
     margin-bottom: 1.1em;
-}
-textarea {
-    box-sizing: border-box;
-    border-radius: 10px;
-    width: 100%;
 }
 </style>
