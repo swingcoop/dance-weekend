@@ -3,7 +3,7 @@
     <h3>Choose your adventure.</h3>
 
     <label>
-        <input v-model="shirt" type="checkbox" />
+        <input v-model="shirtInterest" type="checkbox" />
         I would like an event shirt, probably.
     </label>
 
@@ -18,7 +18,7 @@
     </label>
 
     <label v-if="isResident">
-        <input v-model="hosting" type="checkbox" />
+        <input v-model="hostingInterest" type="checkbox" />
         I might be able to host people at my place, and I am a good person.
     </label>
 
@@ -38,10 +38,10 @@ export default {
     data() {
         return {
             state: null,
-            shirt: null,
+            shirtInterest: null,
             volunteerDuring: null,
             volunteerBefore: null,
-            hosting: null
+            hostingInterest: null
         };
     },
     computed: {
@@ -55,10 +55,10 @@ export default {
     methods: {
         next() {
             flow.next({
-                shirt: this.shirt,
+                shirtInterest: this.shirtInterest,
                 volunteerDuring: this.volunteerDuring,
                 volunteerBefore: this.volunteerBefore,
-                hosting: this.hosting
+                hostingInterest: this.hostingInterest
             })
         }
     }

@@ -36,16 +36,55 @@ router.get('/api/reservations', async ctx => {
 });
 
 router.post('/api/reservations', async (ctx, next) => {
-   await new Promise ((resolve, reject) => {
-      base('Reservations').create([{ fields: ctx.request.body }], 
+   var body = ctx.request.body;
+
+   var guest = new Promise ((resolve, reject) => {
+      let fields = {
+         Name: body.name,
+         Email: body.email,
+         "In Corvallis": body.residency,
+         "Hosting Interest": body.hostingInterest,
+         "Looking For Housing": body.housingInterest,
+         "Volunteer Before": body.volunteerBefore,
+         "Shirt Interest": body.shirtInterest,
+         "Volunteer During": body.volunteerDuring
+      };
+
+      base('Guests').create(
+         [{ fields: fields }], 
          (err, records) => {
-            if (err) {
-               ctx.throw(500, err.message);
-            }
-            ctx.status = 200;
-            resolve();
+            if (err)
+               reject(err)
+            else
+               resolve(records)
          }
       );
+   });
+
+   var diet = new Promise((resolve, reject) => {
+      let fields = body.diet;
+      fields.Name = body.name;
+      base('Diets').create(
+         [{ fields: fields }], 
+         (err, records) => err ? reject(err) : resolve(records)
+      );
+   });
+
+   var allergies = new Promise((resolve, reject) => {
+      let fields = body.allergies;
+      fields.Name = body.name;
+      base('Allergies').create(
+         [{ fields: fields }],
+         (err, records) => err ? reject(err) : resolve(records)
+      );
+   });
+
+   await Promise.all([guest, diet, allergies])
+   .then(() => {
+      ctx.status = 200;
+   })
+   .catch(err => {
+      ctx.throw(500, err);
    });
 });
 
