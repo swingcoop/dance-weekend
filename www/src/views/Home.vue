@@ -24,4 +24,7 @@ export default {
   body {
     color: white;
   }
+  .home {
+    text-align: center;
+  }
 </style>
