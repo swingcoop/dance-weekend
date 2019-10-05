@@ -22,6 +22,18 @@ function next(model) {
             to('rsvp-choose');
             break;
         case 'rsvp-choose':
+            if (state.residency === 'no') {
+                to('rsvp-travel');
+            }
+            else if (state.hostingInterest) {
+                to('rsvp-host');
+            }
+            else {
+                to('rsvp-payment');
+            }
+            break;
+        case 'rsvp-travel':
+        case 'rsvp-host':
             to('rsvp-payment');
             break;
         case 'rsvp-payment':

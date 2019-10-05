@@ -5,6 +5,8 @@ import RsvpStart from './views/rsvp/RsvpStart.vue'
 import RsvpWho from './views/rsvp/RsvpWho.vue'
 import RsvpFood from './views/rsvp/RsvpFood.vue'
 import RsvpChoose from './views/rsvp/RsvpChoose.vue'
+import RsvpHost from './views/rsvp/RsvpHost.vue'
+import RsvpTravel from './views/rsvp/RsvpTravel.vue'
 import RsvpPayment from './views/rsvp/RsvpPayment.vue'
 import RsvpThanks from './views/rsvp/RsvpThanks.vue'
 
@@ -40,6 +42,18 @@ var router = new Router({
       path: '/rsvp/choose-your-adventure',
       name: 'rsvp-choose',
       component: RsvpChoose,
+      props: true
+    },
+    {
+      path: '/rsvp/travel',
+      name: 'rsvp-travel',
+      component: RsvpTravel,
+      props: true
+    },
+    {
+      path: '/rsvp/host',
+      name: 'rsvp-host',
+      component: RsvpHost,
       props: true
     },
     {

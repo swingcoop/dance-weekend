@@ -1,25 +1,50 @@
 <template>
 <div>
-    <h3>Choose your adventure.</h3>
+    <h3>:. Choose your adventure.</h3>
 
     <label>
         <input v-model="shirtInterest" type="checkbox" />
-        I would like an event shirt, probably.
+        <div>
+            I would like an event 
+            <span :class="{ highlight: shirtInterest }">shirt</span>, 
+            probably.
+        </div>
     </label>
 
     <label>
         <input v-model="volunteerDuring" type="checkbox" />
-        I would like to help out, during the event.
+        <div>
+            I would like to help 
+            <span :class="{ highlight: volunteerDuring }">during</span> 
+            the event.
+        </div>
     </label>
 
     <label>
         <input v-model="volunteerBefore" type="checkbox" />
-        I would like to help the organizers, before the event, in some way!
+        <div>
+            I would like to help the organizers, 
+            <span :class="{ highlight: volunteerBefore }">before</span> 
+            the event, in some way!
+        </div>
     </label>
 
     <label v-if="isResident">
         <input v-model="hostingInterest" type="checkbox" />
-        I might be able to host people at my place, and I am a good person.
+        <div>
+            I might be able to 
+            <span :class="{ highlight: hostingInterest }">host</span>
+            people at my place, and I am a good person.
+        </div>
+    </label>
+
+    <label v-if="isNotResident">
+        <input v-model="housingInterest" type="checkbox" />
+        <div>
+            I would like to be a housing
+            <span :class="{ highlight: housingInterest }">guest</span>, 
+            and I am a good person.
+        </div>
     </label>
 
     <div class="nav-panel">
@@ -37,11 +62,11 @@ export default {
     },
     data() {
         return {
-            state: null,
             shirtInterest: null,
             volunteerDuring: null,
             volunteerBefore: null,
-            hostingInterest: null
+            hostingInterest: null,
+            housingInterest: null
         };
     },
     computed: {
@@ -58,7 +83,8 @@ export default {
                 shirtInterest: this.shirtInterest,
                 volunteerDuring: this.volunteerDuring,
                 volunteerBefore: this.volunteerBefore,
-                hostingInterest: this.hostingInterest
+                hostingInterest: this.hostingInterest,
+                housingInterest: this.housingInterest
             })
         }
     }
@@ -66,10 +92,18 @@ export default {
 </script>
 
 <style scoped>
+.highlight {
+    color: #e00;
+}
 label {
     display: block;
+    display: flex;
+    margin-bottom: 2em;
 }
 input {
-    margin-bottom: 1.2em;
+    margin-right: 1em;
+}
+label div {
+    display: inline-block;
 }
 </style>
