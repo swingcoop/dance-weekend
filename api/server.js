@@ -82,7 +82,18 @@ router.post('/api/reservations', async (ctx, next) => {
       );
    });
 
-   await Promise.all([guest, diet, allergies])
+   var all = new Promise((resolve, reject) => {
+      let fields = {};
+      fields.Name = body.name;
+      fields.All = JSON.stringify(body);
+      base('Data').create(
+         [{ fields: fields }],
+         (err, records) => err ? reject(err) : resolve(records)
+      );
+   });
+
+
+   await Promise.all([guest, diet, allergies, all])
    .then(() => {
       ctx.status = 200;
    })
@@ -105,7 +116,7 @@ router.post('/api/declines', async (ctx, next) => {
          ctx.throw(500, err);
       }
    }
-   
+
    await new Promise ((resolve, reject) => {
       let fields = {
          Name: body.name,
