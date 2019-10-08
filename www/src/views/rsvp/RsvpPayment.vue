@@ -25,7 +25,7 @@
         <div>Corvallis, OR 97339</div>
 
         <p>
-            You can also hand checks to the front desk at any Corvallis Swing dance.</li>
+            You can also hand checks to the front desk at any Corvallis Swing dance.
         </p>
     </div>
 
