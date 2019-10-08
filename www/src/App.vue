@@ -53,6 +53,7 @@ textarea {
     padding: 1ex;
     font-size: 1em;
     border-radius: 10px;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
     display: block;
     width: 100%;
 }
