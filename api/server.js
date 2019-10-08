@@ -5,6 +5,7 @@ if (!process.env.AIRTABLE_API_KEY) {
    return;
 }
 
+const axios = require('axios');
 const bodyParser = require('koa-bodyparser');
 const logger = require('koa-logger');
 const Router = require('@koa/router');
@@ -13,6 +14,8 @@ const Koa = require('koa');
 const Airtable = require('airtable');
 var base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
    .base('appIfjQZZE4PYWOZc');
+
+const SlackWebhook = process.env.SLACK_WEBHOOK;
 
 const app = new Koa();
 const router = new Router();
@@ -91,6 +94,18 @@ router.post('/api/reservations', async (ctx, next) => {
 router.post('/api/declines', async (ctx, next) => {
    var body = ctx.request.body;
 
+   if (SlackWebhook) {
+      try {
+         let payload = {
+            text: "Unable to attend\nName: " + body.name + "\nNote: " + body.note
+         };
+         await axios.post(SlackWebhook, payload);
+      }
+      catch (err) {
+         ctx.throw(500, err);
+      }
+   }
+   
    await new Promise ((resolve, reject) => {
       let fields = {
          Name: body.name,
