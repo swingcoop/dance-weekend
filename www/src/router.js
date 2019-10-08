@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+// import Soon from './views/Soon.vue'
 import RsvpStart from './views/rsvp/RsvpStart.vue'
 import RsvpWho from './views/rsvp/RsvpWho.vue'
 import RsvpFood from './views/rsvp/RsvpFood.vue'

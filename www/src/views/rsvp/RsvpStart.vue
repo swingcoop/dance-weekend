@@ -11,6 +11,8 @@
     
     <p>January 31 &ndash; February 2, 2020.</p>
 
+    <p>Weekend passes are $60, today.</p>
+
     <h3>Will you be attending?</h3> 
 
     <div class="button-panel">
