@@ -30,7 +30,7 @@
     <h3>Please confirm?</h3>
     <label>
         <input v-model="enjoysDancing" type="checkbox"/>
-        I enjoy dancing
+        I enjoy <span :class="{ 'selected' : enjoysDancing }">dancing</span>
     </label>
 
     <div class="nav-panel">
@@ -69,8 +69,9 @@ export default {
 
 <style scoped>
 label {
-    border: dotted 1px red;
-    border-radius: 10px;
-    padding: 2ex;
+    margin-bottom: 1em;
+}
+.selected {
+    color: #e00;
 }
 </style>

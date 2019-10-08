@@ -115,6 +115,8 @@ export default {
 </script>
 
 <style scoped>
-
-
+button:disabled,
+button[disabled]{
+  visibility: hidden;
+}
 </style>
