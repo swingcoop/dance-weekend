@@ -82,8 +82,8 @@ export default {
                 ...this.$route.params,
                 payment: this.payment
             };
-            axios.post('/api/reservations', this.$route.params)
-            .then(res => {
+            axios.post('/api/reservations', reservation)
+            .then(() => {
                 // eslint-disable-next-line
                 // console.log(res);
                 flow.next({
