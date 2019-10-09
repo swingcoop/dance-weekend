@@ -71,7 +71,4 @@ export default {
 label {
     margin-bottom: 1em;
 }
-.selected {
-    color: #e00;
-}
 </style>

@@ -31,7 +31,7 @@ export default {
     text-align: center;
   }
   .dancers {
-    /* fill: yellow; */
+    fill: #aaa;
   }
   .logo-wrapper {
     width: 33%;
