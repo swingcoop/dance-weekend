@@ -68,6 +68,7 @@ export default {
                 hasPets: this.hasPets,
                 hasCar: this.hasCar,
                 excited: this.excited,
+                smokersWelcome: this.smokersWelcome,
                 hostingComments: this.comments
             })
         }

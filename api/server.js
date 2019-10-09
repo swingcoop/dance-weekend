@@ -50,7 +50,31 @@ router.post('/api/reservations', async (ctx, next) => {
          "Looking For Housing": body.housingInterest,
          "Volunteer Before": body.volunteerBefore,
          "Shirt Interest": body.shirtInterest,
-         "Volunteer During": body.volunteerDuring
+         "Volunteer During": body.volunteerDuring,
+         // Hosting
+         "How Many Guests": body.hostingHowMany,
+         "Hosting Comments": body.hostingComments,
+         "Excited to Host": body.excited,
+         "Has Pets": body.hasPets,
+         "Smokers Welcome": body.smokersWelcome,
+         "Has Car": body.hasCar,
+         // Travelers
+         From: body.from,
+         "Train Interest": body.trainInterest,
+         "Carpool Interest": body.carpoolInterest,
+         "Travel Flexible": body.flexible,
+         "Pet Allergies": body.petAllergies,
+         Smokes:body.smokes,
+         "Needs Car": body.needsCar,
+         "Travel Comments": body.housingComments,
+         // Diet
+         Vegetarian: body.diet.vegetarian,
+         Vegan: body.diet.vegan,
+         "Likes Checking Boxes": body.diet.fun,
+         // Allergies
+         ...body.allergies,
+         // Everything / fallback
+         All: JSON.stringify(body),
       };
 
       base('Guests').create(
@@ -64,36 +88,7 @@ router.post('/api/reservations', async (ctx, next) => {
       );
    });
 
-   var diet = new Promise((resolve, reject) => {
-      let fields = body.diet;
-      fields.Name = body.name;
-      base('Diets').create(
-         [{ fields: fields }], 
-         (err, records) => err ? reject(err) : resolve(records)
-      );
-   });
-
-   var allergies = new Promise((resolve, reject) => {
-      let fields = body.allergies;
-      fields.Name = body.name;
-      base('Allergies').create(
-         [{ fields: fields }],
-         (err, records) => err ? reject(err) : resolve(records)
-      );
-   });
-
-   var all = new Promise((resolve, reject) => {
-      let fields = {};
-      fields.Name = body.name;
-      fields.All = JSON.stringify(body);
-      base('Data').create(
-         [{ fields: fields }],
-         (err, records) => err ? reject(err) : resolve(records)
-      );
-   });
-
-
-   await Promise.all([guest, diet, allergies, all])
+   await Promise.all([guest])
    .then(() => {
       ctx.status = 200;
    })
