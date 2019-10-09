@@ -73,6 +73,8 @@ router.post('/api/reservations', async (ctx, next) => {
          "Likes Checking Boxes": body.diet.fun,
          // Allergies
          ...body.allergies,
+         // Payment
+         "Payment Type": body.payment,
          // Everything / fallback
          All: JSON.stringify(body),
       };
@@ -88,6 +90,21 @@ router.post('/api/reservations', async (ctx, next) => {
       );
    });
 
+   var notifyTeam = new Promise ((resolve, reject) => {
+      if (!SlackWebhook) {
+         resolve();
+         return;
+      }
+      
+      let payload = {
+         text: "Attending: " + body.name
+      };
+
+      axios.post(SlackWebhook, payload)
+         .then(resolve)
+         .catch(reject);
+   });
+
    await Promise.all([guest])
    .then(() => {
       ctx.status = 200;
@@ -95,6 +112,8 @@ router.post('/api/reservations', async (ctx, next) => {
    .catch(err => {
       ctx.throw(500, err);
    });
+
+   await notifyTeam;
 });
 
 router.post('/api/declines', async (ctx, next) => {
@@ -103,7 +122,7 @@ router.post('/api/declines', async (ctx, next) => {
    if (SlackWebhook) {
       try {
          let payload = {
-            text: "Unable to attend\nName: " + body.name + "\nNote: " + body.note
+            text: "Unable to attend: " + body.name + "\n\"" + body.note + "\""
          };
          await axios.post(SlackWebhook, payload);
       }
