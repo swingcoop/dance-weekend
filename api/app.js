@@ -10,6 +10,7 @@ const bodyParser = require('koa-bodyparser');
 const logger = require('koa-logger');
 const Router = require('@koa/router');
 const Koa = require('koa');
+const serve = require('koa-static');
 
 const Airtable = require('airtable');
 var base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
@@ -23,10 +24,10 @@ const router = new Router();
 app.use(bodyParser());
 app.use(logger());
 
-router.get('/', async ctx => {
-   ctx.status = 200;
-   ctx.body = 'Fine';
-});
+// router.get('/', async ctx => {
+//    ctx.status = 200;
+//    ctx.body = 'Fine';
+// });
 
 router.post('/', async ctx => {
    ctx.status = 200;
@@ -164,5 +165,6 @@ app.use(async (ctx, next) => {
    }
 });
 
+app.use(serve(__dirname + '/dist'));
 app.use(router.routes());
 app.listen(3000);
