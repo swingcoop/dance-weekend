@@ -90,7 +90,7 @@ export default {
             cardError: null,
             isCharging: false,
             hasPaid: false,
-            paymentId: null
+            transactionId: null
         }
     },
     computed: {
