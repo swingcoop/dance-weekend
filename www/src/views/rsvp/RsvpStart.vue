@@ -77,7 +77,7 @@ export default {
             declineSent: false,
             declineError: false,
             isAttending: null,
-            name: ''
+            name: flow.state().name || ''
         }
     },
     computed: {

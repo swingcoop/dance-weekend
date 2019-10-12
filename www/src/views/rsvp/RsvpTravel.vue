@@ -75,18 +75,21 @@ import flow from '@/lib/flow';
 
 export default {
     props: {
-        housingInterest: Boolean
+        housingInterest: {
+            type: Boolean,
+            default: flow.state().housingInterest
+        }
     },
     data() {
         return {
-            from: null,
-            trainInterest: false,
-            carpoolInterest: false,
-            flexible: false,
-            petAllergies: false,
-            smokes: false,
-            needsCar: false,
-            housingComments: null
+            from: flow.state().from || null,
+            trainInterest: flow.state().trainInterest || false,
+            carpoolInterest: flow.state().carpoolInterest || false,
+            flexible: flow.state().flexible || false,
+            petAllergies: flow.state().petAllergies || false,
+            smokes: flow.state().smokes || false,
+            needsCar: flow.state().needsCar || false,
+            housingComments: flow.state().housingComments || null
         }
     },
     methods: {

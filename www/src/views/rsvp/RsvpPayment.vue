@@ -80,17 +80,23 @@ import Vue from 'vue';
 
 export default {
     props: {
-        name: String,
-        residency: String
+        name: {
+            type: String,
+            default: flow.state().name
+        },
+        residency: {
+            type: String,
+            default: flow.state().residency
+        }
     },
     data() {
         return {
-            payment: null,
+            payment: flow.state().payment || null,
             error: null,
             cardError: null,
             isCharging: false,
             hasPaid: false,
-            transactionId: null
+            transactionId: flow.state().transactionId || null
         }
     },
     computed: {

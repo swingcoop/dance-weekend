@@ -1,6 +1,9 @@
+import store from 'store2';
 
-var state = {};
+const storeKey = 'corvallis-swing-weekend-2020-rsvp-state'
+var state = store(storeKey) || {};
 var router = null;
+
 /* eslint-disable */
 function next(model) {
     state = { 
@@ -8,7 +11,9 @@ function next(model) {
         ...model 
     };
 
-    console.log(state);
+    store(storeKey, state);
+    // console.log(state);
+    
     // Navigate based on route + state
     var route = router.currentRoute;
     switch (route.name) {
@@ -50,8 +55,16 @@ function use(vueRouter) {
     router = vueRouter;
 }
 
+function finish() {
+    // Clear out storage
+    store(storeKey, {});
+}
+
 export default {
+    finish,
     next,
-    state,
+    state() {
+        return store(storeKey);
+    },
     use
 };

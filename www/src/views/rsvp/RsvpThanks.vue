@@ -29,16 +29,26 @@
 </template>
 
 <script>
+import flow from '@/lib/flow';
 
 export default {
     props: {
-        name: String,
-        payment: String
+        name: {
+            type: String,
+            default: flow.state().name
+        },
+        payment: {
+            type: String,
+            default: flow.state().payment
+        }
     },
     computed: {
         isCheck() {
             return this.payment == 'check';
         }
+    },
+    mounted() {
+        flow.finish();
     }
 }
 </script>

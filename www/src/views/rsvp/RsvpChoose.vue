@@ -58,15 +58,18 @@ import flow from '@/lib/flow'
 
 export default {
     props: {
-        residency: String
+        residency: {
+            type: String,
+            default: flow.state().residency
+        }
     },
     data() {
         return {
-            shirtInterest: null,
-            volunteerDuring: null,
-            volunteerBefore: null,
-            hostingInterest: null,
-            housingInterest: null
+            shirtInterest: flow.state().shirtInterest || null,
+            volunteerDuring: flow.state().volunteerDuring || null,
+            volunteerBefore: flow.state().volunteerBefore || null,
+            hostingInterest: flow.state().hostingInterest || null,
+            housingInterest: flow.state().housingInterest || null
         };
     },
     computed: {

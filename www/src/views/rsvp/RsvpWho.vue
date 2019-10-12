@@ -44,13 +44,16 @@ import flow from '@/lib/flow';
 
 export default {
     props: {
-        name: String
+        name: {
+            type: String,
+            default: flow.state().name
+        }
     },
     data() {
         return {
-            email: '',
+            email: flow.state().email || '',
             enjoysDancing: null,
-            residency: null
+            residency: flow.state().residency || null
         }
     },
     methods: {

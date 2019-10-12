@@ -38,8 +38,8 @@ import flow from '@/lib/flow';
 export default {
     data() {
         return {
-            diet: {},
-            allergies: {}
+            diet: flow.state().diet || {},
+            allergies: flow.state().allergies || {}
         }
     },
     computed: {

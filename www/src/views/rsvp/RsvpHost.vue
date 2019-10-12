@@ -53,12 +53,12 @@ export default {
     },
     data() {
         return {
-            howMany: null,
-            hasPets: false,
-            smokersWelcome: false,
-            hasCar: false,
-            excited: false,
-            comments: null
+            howMany: flow.state().hostingHowMany || null,
+            hasPets: flow.state().hasPets || false,
+            smokersWelcome: flow.state().smokersWelcome || false,
+            hasCar: flow.state().hasCar || false,
+            excited: flow.state().excited || false,
+            comments: flow.state().hostingComments || null
         }
     },
     methods: {
