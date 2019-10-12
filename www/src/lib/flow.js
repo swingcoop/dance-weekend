@@ -64,7 +64,7 @@ export default {
     finish,
     next,
     state() {
-        return store(storeKey);
+        return store(storeKey) || {};
     },
     use
 };
