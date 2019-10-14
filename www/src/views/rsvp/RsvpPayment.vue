@@ -96,7 +96,8 @@ export default {
             cardError: null,
             isCharging: false,
             hasPaid: false,
-            transactionId: flow.state().transactionId || null
+            transactionId: flow.state().transactionId || null,
+            isReserving: false
         }
     },
     computed: {
@@ -121,6 +122,10 @@ export default {
             this.payment = val;
         },
         rsvp() {
+            if (this.isReserving)
+                return;
+
+            this.isReserving = true;
             var reservation = {
                 ...this.$route.params,
                 payment: this.payment,
@@ -135,6 +140,7 @@ export default {
             })
             .catch(err => {
                 this.error = err;
+                this.isReserving = false;
             })
         },
         addCardElement() {
