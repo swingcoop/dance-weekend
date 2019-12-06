@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Schedule from './views/Schedule.vue'
 // import Soon from './views/Soon.vue'
 import RsvpStart from './views/rsvp/RsvpStart.vue'
 import RsvpWho from './views/rsvp/RsvpWho.vue'
@@ -21,6 +22,11 @@ var router = new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/schedule',
+      name: 'schedule',
+      component: Schedule
     },
     {
       path: '/rsvp',

@@ -4,7 +4,10 @@
       <CorvallisSwingLogo class="logo"/>
     </div>
     <div class="rsvp">
-      <router-link to="/rsvp">R.S.V.P.</router-link>
+      <router-link to="/schedule">Schedule</router-link>
+      <span class="yes">
+        <router-link to="/rsvp">R.S.V.P.</router-link>
+      </span>
     </div>
     <h1>Year 10. Let's go.</h1>
 
@@ -65,6 +68,13 @@ export default {
   }
   .rsvp {
     margin-top: 1em;
+  }
+  .rsvp a {
+    padding-left: 1ex;
+    padding-right: 2ex;
+  }
+  .yes a {
+    /* color: #c33; */
   }
   .home {
     text-align: center;
