@@ -13,6 +13,11 @@
     <div>Stealin' Apples Jazz Band,<br/>featuring Jen Hodge</div>
 
     <h2>Saturday, February 1.</h2>
+    <div class="venue">Imagine Coffee</div>
+    <div>1 p.m.</div>
+    <div>Band jam</div>
+
+    <h2>Saturday evening.</h2>
     <div class="venue">Odd Fellows Hall</div>
     <div>7 p.m.</div>
     <div>Stealin' Apples Jazz Band,<br/>featuring Jen Hodge</div>
