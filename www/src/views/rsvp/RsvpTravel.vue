@@ -1,5 +1,5 @@
 <template>
-<div>
+<app-view>
     <h3>:. Guest itinerary</h3>
 
     <p>Thank you for coming to visit Corvallis.</p>
@@ -67,13 +67,15 @@
     <div class="nav-panel">
         <button @click="next">Next</button>
     </div>
-</div>
+</app-view>
 </template>
 
 <script>
+import AppView from '../AppView'
 import flow from '@/lib/flow';
 
 export default {
+    components: { AppView },
     props: {
         housingInterest: {
             type: Boolean,

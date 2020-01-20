@@ -1,5 +1,5 @@
 <template>
-<div>
+<app-view>
     <h3>:. Thank you</h3>
 
     <p>See you in January! Thank you for being a part of the Weekend.</p>
@@ -25,13 +25,15 @@
     </div>
 
     <p>Thanks for dancing with us.</p>
-</div>    
+</app-view>    
 </template>
 
 <script>
+import AppView from '../AppView'
 import flow from '@/lib/flow';
 
 export default {
+    components: { AppView },
     props: {
         name: {
             type: String,

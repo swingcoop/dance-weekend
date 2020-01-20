@@ -12,10 +12,10 @@
   color: white;
   margin-top: 60px;
 
-  max-width: 625px;
   margin-left: auto;
   margin-right: auto;
-  padding: 2ex;
+
+  max-width: 625px;
   padding-top: 0;
   padding-bottom: 2.5em;
 }

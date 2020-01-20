@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <app-view class="home">
     <div class="logo-wrapper">
       <CorvallisSwingLogo class="logo"/>
     </div>
@@ -45,15 +45,17 @@
     <div class="rsvp">
       <router-link to="/rsvp">R.S.V.P.</router-link>
     </div>
-  </div>
+  </app-view>
 </template>
 
 <script>
+import AppView from './AppView'
 import CorvallisSwingLogo from "@/assets/corvallis-swing.svg"
 
 export default {
   name: 'home',
   components: {
+    AppView,
     CorvallisSwingLogo
   }
 }

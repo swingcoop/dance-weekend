@@ -1,5 +1,5 @@
 <template>
-<div>
+<app-view>
     <h1>R.S.V.P.</h1>
     <h2>Corvallis Swing Dance Weekend.</h2>
     <h2>Year 10.</h2>
@@ -61,15 +61,17 @@
                 >That's me.</button>
         </div>
     </div>
-</div>    
+</app-view>    
 </template>
 
 <script>
+import AppView from '../AppView'
 import flow from '@/lib/flow';
 import axios from 'axios';
 
 export default {
     name: 'RsvpStart',
+    components: { AppView },
     data() {
         return {
             isDeclining: false,

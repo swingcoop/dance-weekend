@@ -242,9 +242,9 @@
 <style scoped>
 body {
     color: white;
-      /* margin-left: auto;
-  margin-right: auto; */
-  /* padding: 2ex; */
+
+    margin: 0;
+    padding: 0; 
 }
 section {
     padding-left: 2ex;
@@ -265,12 +265,6 @@ h4 {
     text-transform: uppercase;
     text-align: center;
 }
-
-/* h3 {
-    margin: 0;
-    width: 100%;
-    text-align: center;
-} */
 
 .time {
 	display: flex;

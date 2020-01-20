@@ -1,5 +1,5 @@
 <template>
-<div>
+<app-view>
     <h3>:. Choose your adventure.</h3>
 
     <label>
@@ -50,13 +50,15 @@
     <div class="nav-panel">
         <button @click="next">Next</button>
     </div>
-</div>
+</app-view>
 </template>
 
 <script>
+import AppView from '../AppView'
 import flow from '@/lib/flow'
 
 export default {
+    components: { AppView },
     props: {
         residency: {
             type: String,

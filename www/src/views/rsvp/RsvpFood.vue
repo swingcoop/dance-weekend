@@ -1,5 +1,5 @@
 <template>
-<div>
+<app-view>
     <h2>:. Food</h2>
     <h3>Check a box, maybe?</h3>
     <div v-for="d in diets" :key="d.key">
@@ -29,13 +29,15 @@
     <div class="nav-panel">
         <button @click="next">Next</button>
     </div>
-</div>
+</app-view>
 </template>
 
 <script>
+import AppView from '../AppView'
 import flow from '@/lib/flow';
 
 export default {
+    components: { AppView },
     data() {
         return {
             diet: flow.state().diet || {},

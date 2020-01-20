@@ -1,5 +1,5 @@
 <template>
-<div>
+<app-view>
     <h3>:. Payment</h3>
 
     <p>Weekend passes are $60.</p>
@@ -70,15 +70,17 @@
         We're sorry, we could not save your reservation. If you continue to see
         this message, please <a href="http://corvallisswing.com/contact/">contact us</a>.
     </p>
-</div>
+</app-view>
 </template>
 
 <script>
+import AppView from '../AppView'
 import flow from '@/lib/flow';
 import axios from 'axios';
 import Vue from 'vue';
 
 export default {
+    components: { AppView },
     props: {
         name: {
             type: String,

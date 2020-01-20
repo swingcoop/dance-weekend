@@ -1,5 +1,5 @@
 <template>
-<div>
+<app-view>
     <h3>:. Hosting</h3>
 
     <p>Thank you for possibly hosting guests during the weekend.</p>
@@ -41,13 +41,15 @@
     <div class="nav-panel">
         <button @click="next">Next</button>
     </div>
-</div>    
+</app-view>    
 </template>
 
 <script>
+import AppView from '../AppView'
 import flow from '@/lib/flow';
 
 export default {
+    components: { AppView },
     props: {
 
     },

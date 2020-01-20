@@ -1,5 +1,5 @@
 <template>
-<div>
+<app-view>
     <h2>:. {{name}}</h2>
 
     <p>
@@ -36,13 +36,15 @@
     <div class="nav-panel">
         <button @click="next">Next</button>
     </div>
-</div>
+</app-view>
 </template>
 
 <script>
+import AppView from '../AppView';
 import flow from '@/lib/flow';
 
 export default {
+    components: { AppView },
     props: {
         name: {
             type: String,
