@@ -16,6 +16,7 @@ const logger = require('koa-logger');
 const Router = require('@koa/router');
 const Koa = require('koa');
 const serve = require('koa-static');
+const send = require('koa-send');
 
 const Airtable = require('airtable');
 var base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
@@ -238,4 +239,10 @@ app.use(async (ctx, next) => {
 
 app.use(serve(__dirname + '/dist'));
 app.use(router.routes());
+app.use(async (ctx) => {
+   if (ctx.status === 404) {
+      ctx.status = 200;
+      await send(ctx, 'dist/index.html');
+   }
+});
 app.listen(3000);
