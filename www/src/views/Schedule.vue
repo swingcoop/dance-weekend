@@ -12,7 +12,7 @@
         <p>Doors open. Please check in at the front desk.</p>
 
         <h3 class="time">8:00 p.m.</h3>
-        <p>Intro lesson featuring the Charleston, lead by Lindsey Almarode and Bailey Keefe.</p>
+        <p>Intro lesson featuring the Charleston, led by Lindsey Almarode and Bailey Keefe.</p>
 
         <h3 class="time">8:30 p.m.</h3>
 
@@ -113,8 +113,11 @@
             Odd Fellows Hall. 223 SW 2nd St.
         </div>
 
+        <h3 class="time">6:30 p.m.</h3>
+        <p>Doors open. Please check in at the front desk.</p>
+
         <h3 class="time">7:00 p.m.</h3>
-        <p>Intro lesson featuring 6-count Lindy hop, lead by Nika Jin and Nick Davis.</p>
+        <p>Intro lesson featuring 6-count Lindy hop, led by Nika Jin and Nick Davis.</p>
 
         <h3 class="time">8:00 p.m.</h3>
         <h4>Stealin' Apples Jazz Band<br/>featuring Jen Hodge</h4>
