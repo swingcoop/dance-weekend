@@ -189,6 +189,76 @@ router.post('/api/charge', async (ctx, next) => {
    }
 });
 
+router.post('/api/donate', async (ctx, next) => {
+   var token = ctx.request.body.token;
+   var name = ctx.request.body.name;
+   var note = ctx.request.body.note;
+
+   var amount = ctx.request.body.amount;
+   if (Number.isNaN(parseFloat(amount)) || amount < 0 || amount > 1000) {
+      ctx.throw(500, 'Invalid amount');
+   }
+
+   amount = parseFloat(amount);
+   
+   try {
+      const charge = await stripe.charges.create({
+         amount: amount * 100,
+         currency: 'usd',
+         description: 'Weekend Donation',
+         source: token,
+         statement_descriptor: 'Weekend',
+      });
+
+      await new Promise((resolve, reject) => {
+         var fields = {
+            Name: name,
+            Amount: amount,
+            Note: note,
+            "Transaction ID": charge.id
+         };
+         base('Donations').create(
+            [{ fields: fields }], 
+            (err, records) => {
+               if (err)
+                  reject(err)
+               else
+                  resolve(records)
+            }
+         );
+      })
+      .then(() => {
+         ctx.status = 200;
+         ctx.message = charge.id;
+      })
+      .catch(err => {
+         ctx.status = 500;
+         ctx.message = err.message;
+      });
+   }
+   catch (err) {
+      switch (err.type) {
+         case 'StripeCardError':
+           // A declined card error
+           ctx.status = 400;
+           break;
+         case 'StripeInvalidRequestError':
+           // Invalid parameters were supplied to Stripe's API
+         case 'StripeAPIError':
+           // An error occurred internally with Stripe's API
+         case 'StripeConnectionError':
+           // Some kind of error occurred during the HTTPS communication
+         case 'StripeAuthenticationError':
+           // You probably used an incorrect API key
+         case 'StripeRateLimitError':
+           // Too many requests hit the API too quickly
+           ctx.status = 500;
+           break;
+       }
+       ctx.message = err.message; // => e.g. "Your card's expiration year is invalid."
+   }
+});
+
 router.post('/api/declines', async (ctx, next) => {
    var body = ctx.request.body;
 

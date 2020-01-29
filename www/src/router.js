@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Donate from './views/Donate.vue'
 import Home from './views/Home.vue'
 import Schedule from './views/Schedule.vue'
 // import Soon from './views/Soon.vue'
@@ -22,6 +23,11 @@ var router = new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/donate',
+      name: 'donate',
+      component: Donate
     },
     {
       path: '/schedule',
