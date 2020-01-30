@@ -8,6 +8,7 @@
       <span class="yes">
         <router-link to="/rsvp">R.S.V.P.</router-link>
       </span>
+      <router-link to="/donate">Donate</router-link>
     </div>
     <h1>Year 10. Let's go.</h1>
 
