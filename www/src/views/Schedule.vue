@@ -5,10 +5,13 @@
     <section>
         <h2>Friday, January 31</h2>
         <div class="venue">
-            Odd Fellows Hall. 223 SW 2nd St.
+            Odd Fellows Hall. 223 SW 2nd St. 
         </div>
 
-        <h3 class="time start">7:30 p.m.</h3>
+        <h3 class="time start">
+            <div class="price">$20</div>
+            7:30 p.m.
+        </h3>
         <p>Doors open. Please check in at the front desk.</p>
 
         <h3 class="time">8:00 p.m.</h3>
@@ -60,35 +63,40 @@
             </div>
         </div> -->
 
-        <h2>Friday Late Night</h2>
-        <div class="venue">
-            Odd Fellows Hall. 223 SW 2nd St.
+        <div class="late-night">
+            <h2>Friday Late Night</h2>
+            <div class="venue">
+                Odd Fellows Hall. 223 SW 2nd St.
+            </div>
+
+            <h3 class="time">
+                <div class="price">$15</div>
+                11:30 p.m.
+            </h3>
+            <p>Snack time, with DJ Kristin Buxton.</p>
+            
+            <h3 class="time">12:30 a.m.</h3>
+            <h4>Stealin' Apples Jazz Band<br/>featuring Jen Hodge</h4>
+            <p>
+                The Stealin’ Apples Jazz Band is pianist Shane Allen’s love letter to classic, 
+                rowdy, four-on-the-floor swing dance music. From a young age Shane has been a
+                gigging musician and dedicated student of the jazz tradition, blessed with
+                the opportunity to learn from modern giants as well as classic masters. 
+            </p>
+
+            <img src="../assets/stealin-apples.jpg" width="100%"/>
+
+            <p>
+                After years working as a dance accompanist, playing Lindy hop house parties in 
+                Minneapolis, and haunting the late night jams at Herräng Dance Camp, he formed
+                the Stealin’ Apples Jazz Band to connect the world-class faculty and students
+                of the University of Oregon jazz program with lindy hoppers’ passion for authentic
+                swing-era dance music.
+            </p>
+
+            <h3 class="time">3:00 a.m.</h3>
+            <p>End of the first night.</p>
         </div>
-
-        <h3 class="time">11:30 p.m.</h3>
-        <p>Snack time, with DJ Kristin Buxton.</p>
-        
-        <h3 class="time">12:30 a.m.</h3>
-        <h4>Stealin' Apples Jazz Band<br/>featuring Jen Hodge</h4>
-        <p>
-            The Stealin’ Apples Jazz Band is pianist Shane Allen’s love letter to classic, 
-            rowdy, four-on-the-floor swing dance music. From a young age Shane has been a
-            gigging musician and dedicated student of the jazz tradition, blessed with
-            the opportunity to learn from modern giants as well as classic masters. 
-        </p>
-
-        <img src="../assets/stealin-apples.jpg" width="100%"/>
-
-        <p>
-            After years working as a dance accompanist, playing Lindy hop house parties in 
-            Minneapolis, and haunting the late night jams at Herräng Dance Camp, he formed
-            the Stealin’ Apples Jazz Band to connect the world-class faculty and students
-            of the University of Oregon jazz program with lindy hoppers’ passion for authentic
-            swing-era dance music.
-        </p>
-
-        <h3 class="time">3:00 a.m.</h3>
-        <p>End of the first night.</p>
     </section>
 
     <section class="saturday">
@@ -113,7 +121,10 @@
             Odd Fellows Hall. 223 SW 2nd St.
         </div>
 
-        <h3 class="time">6:30 p.m.</h3>
+        <h3 class="time">
+            <div class="price">$20</div>
+            6:30 p.m.
+        </h3>
         <p>Doors open. Please check in at the front desk.</p>
 
         <h3 class="time">7:00 p.m.</h3>
@@ -146,35 +157,40 @@
             and broke the top 100 in the commercial JazzWeek charts.
         </p>
 
-        <h2>Saturday Late Night</h2>
-        <div class="venue">
-            Odd Fellows Hall. 223 SW 2nd St.
+        <div class="late-night">
+            <h2>Saturday Late Night</h2>
+            <div class="venue">
+                Odd Fellows Hall. 223 SW 2nd St.
+            </div>
+
+            <h3 class="time">
+                <div class="price">$15</div>
+                11:00 p.m.
+            </h3>
+            <p>Snack time, with DJ Nick Davis.</p>
+
+            <h3 class="time">Midnight</h3>
+            <h4>Breakers Yard</h4>
+            <p>
+                Breakers Yard is the Willamette Valley’s most eclectic acoustic band. 
+                Sampling from ragtime, country blues, jug band, hot jazz, and delta blues traditions, 
+                they do everything from Lindy hop dances to cowboy ballads to bootie-shakin’ 
+                dance parties.             
+            </p>
+
+            <img src="../assets/breakers-yard.jpg" width="100%"/>
+
+            <p>
+                You can find their most recent albums I Don’t Hurt Anymore and Tried and 
+                Untrue at shows, on Spotify, and on CD Baby, or you can pay them a visit 
+                at <a href="http://www.breakersyardmusic.com">www.breakersyardmusic.com</a>. 
+            </p>
+
+            <p>Break it down!</p>
+
+            <h3 class="time">3:00 a.m.</h3>
+            <p>End of the second night.</p>
         </div>
-
-        <h3 class="time">11:00 p.m.</h3>
-        <p>Snack time, with DJ Nick Davis.</p>
-
-        <h3 class="time">Midnight</h3>
-        <h4>Breakers Yard</h4>
-        <p>
-            Breakers Yard is the Willamette Valley’s most eclectic acoustic band. 
-            Sampling from ragtime, country blues, jug band, hot jazz, and delta blues traditions, 
-            they do everything from Lindy hop dances to cowboy ballads to bootie-shakin’ 
-            dance parties.             
-        </p>
-
-        <img src="../assets/breakers-yard.jpg" width="100%"/>
-
-        <p>
-            You can find their most recent albums I Don’t Hurt Anymore and Tried and 
-            Untrue at shows, on Spotify, and on CD Baby, or you can pay them a visit 
-            at <a href="http://www.breakersyardmusic.com">www.breakersyardmusic.com</a>. 
-        </p>
-
-        <p>Break it down!</p>
-
-        <h3 class="time">3:00 a.m.</h3>
-        <p>End of the second night.</p>
     </section>
 
     <section class="sunday">
@@ -193,7 +209,10 @@
         <div class="venue">
             OSU Women’s Building. 160 SW 26th St.
         </div>
-        <h3 class="time">8:00 p.m.</h3>
+        <h3 class="time">
+            <div class="price">$10</div>
+            8:00 p.m.
+        </h3>
         
         <p>The final dance, with past and present Corvallis Swing DJs.</p>
         <h3 class="time">11:00 p.m.</h3>
@@ -279,6 +298,9 @@ h4 {
 	margin: 0px 0px;
     
 }
+.time:first-of-type {
+    margin-top: 1.5rem;
+}
 .time::before,
 .time::after {
 	content: "";
@@ -325,7 +347,11 @@ h4 {
 }
 .venue {
     margin-top: 0.4rem;
-    margin-bottom: 1.5rem;
     text-align: center;
+}
+.price {
+    color: gold;
+    text-align: center;
+    padding-right: 1ex;
 }
 </style>
