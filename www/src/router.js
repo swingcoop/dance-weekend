@@ -12,8 +12,15 @@ import RsvpHost from './views/rsvp/RsvpHost.vue'
 import RsvpTravel from './views/rsvp/RsvpTravel.vue'
 import RsvpPayment from './views/rsvp/RsvpPayment.vue'
 import RsvpThanks from './views/rsvp/RsvpThanks.vue'
+import RsvpClosed from './views/rsvp/RsvpClosed.vue'
 
 Vue.use(Router)
+
+function isRsvpClosed() {
+  var now = new Date();
+  var weekendStartDate = new Date(2020, 0, 31, 17);
+  return weekendStartDate < now;
+}
 
 var router = new Router({
   mode: 'history',
@@ -37,7 +44,7 @@ var router = new Router({
     {
       path: '/rsvp',
       name: 'rsvp',
-      component: RsvpStart
+      component: isRsvpClosed() ? RsvpClosed : RsvpStart
     },
     {
       path: '/rsvp/who',
@@ -80,6 +87,11 @@ var router = new Router({
       name: 'rsvp-thanks',
       component: RsvpThanks,
       props: true
+    },
+    {
+      path: '/rsvp/closed',
+      name: 'rsvp-closed',
+      component: RsvpClosed
     },
     {
       path: '/about',
